@@ -1,0 +1,19 @@
+elif option == "2":
+        # Asks for the website name so it can search accounts.txt
+        account_name = input(str("Please enter the website you want to search for: "))
+        # Opens accounts.txt as read only
+        f = open("accounts.txt", "r")
+        # Looks at the lines of the file
+        for line in f:
+            info = line.split(",")
+            # If the account name is in the file, it'll print
+            if account_name == info[0]:
+                # Returns the info from the search
+                return info[2]
+        # Prints the info if there is any
+        print(info)
+        # Calls restart
+        restart()
+
+
+        Z9u2W1Uzv5MSen57i9At

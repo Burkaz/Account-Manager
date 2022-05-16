@@ -1,6 +1,7 @@
 # Login python scripts
 import os
 import time
+import linecache
 
 
 def restart():
@@ -47,23 +48,21 @@ def main():
         # Calls restart
         restart()
 
+
     elif option == "2":
         # Asks for the website name so it can search accounts.txt
-        account_name = input("Please enter the website you want to search for: ")
+        account_name = input(str("Please enter the website you want to search for: "))
         # Opens accounts.txt as read only
         f = open("accounts.txt", "r")
-        # Looks at the lines of the file
-        for line in f:
-            # Splits them
-            info = line.split("-")
-            # If the account name is in the file, it'll print
-            if account_name == info[0]:
-                # Returns the info from the search
-                return info[2]
-        # Prints the info if there is any
-        print(info)
+        for x, line in enumerate(f):
+            line = f.readlines()
+            if x == account_name:
+                print(line)
+        f.close()
         # Calls restart
         restart()
+
+
     else:
         # Checking to see if the file exists
         if os.path.isfile("accounts.txt"):
